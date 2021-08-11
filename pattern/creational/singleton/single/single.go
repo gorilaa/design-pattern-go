@@ -19,7 +19,7 @@ func GetInstance() *single {
 		if singleInstance == nil {
 			fmt.Println("Create single instance now")
 			once.Do(func() {
-				singleInstance = &single{}
+				singleInstance = new(single)
 			})
 		} else {
 			fmt.Println("Single Instance already created.")
