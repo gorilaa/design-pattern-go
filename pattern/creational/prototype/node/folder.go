@@ -19,8 +19,7 @@ func (f *Folder) Clone() INode {
 	cloneFolder := &Folder{Name: f.Name + "_clone"}
 
 	for _, i := range f.Children {
-		copy := i.Clone()
-		tempChildren = append(tempChildren, copy)
+		tempChildren = append(tempChildren, i.Clone())
 	}
 
 	cloneFolder.Children = tempChildren
