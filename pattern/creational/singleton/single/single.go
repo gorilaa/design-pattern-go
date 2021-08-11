@@ -10,6 +10,7 @@ var lock = &sync.Mutex{}
 type single struct{}
 
 var singleInstance *single
+var once sync.Once
 
 func GetInstance() *single {
 	if singleInstance == nil {
@@ -17,7 +18,9 @@ func GetInstance() *single {
 		defer lock.Unlock()
 		if singleInstance == nil {
 			fmt.Println("Create single instance now")
-			singleInstance = &single{}
+			once.Do(func() {
+				singleInstance = &single{}
+			})
 		} else {
 			fmt.Println("Single Instance already created.")
 		}
