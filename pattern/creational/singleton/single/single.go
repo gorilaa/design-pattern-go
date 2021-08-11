@@ -7,22 +7,17 @@ import (
 
 var lock = &sync.Mutex{}
 
-type single struct {
-	O interface{}
-}
+type single struct{}
 
-var singleInstance *single = nil
-var once sync.Once
+var singleInstance *single
 
-func GetInstance() *single {
+func GetInstance() interface{} {
 	if singleInstance == nil {
 		lock.Lock()
 		defer lock.Unlock()
 		if singleInstance == nil {
 			fmt.Println("Create single instance now")
-			once.Do(func() {
-				singleInstance = new(single)
-			})
+			singleInstance = &single{}
 		} else {
 			fmt.Println("Single Instance already created.")
 		}
