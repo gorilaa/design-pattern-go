@@ -7,9 +7,11 @@ import (
 
 var lock = &sync.Mutex{}
 
-type single struct{}
+type single struct {
+	O interface{}
+}
 
-var singleInstance *single
+var singleInstance *single = nil
 var once sync.Once
 
 func GetInstance() *single {
