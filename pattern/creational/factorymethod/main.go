@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"design-pattern/pattern/creational/factory-method/gun"
+	"design-pattern/pattern/creational/factorymethod/gun"
 )
 
 func main() {
