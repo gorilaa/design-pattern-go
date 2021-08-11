@@ -1,8 +1,9 @@
 package main
 
 import (
-	"design-pattern/pattern/creational/prototype/node"
 	"fmt"
+
+	"design-pattern/pattern/creational/prototype/node"
 )
 
 func main() {
